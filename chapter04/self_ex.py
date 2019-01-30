@@ -1,5 +1,5 @@
 #自省是通过一定的机制查询到对象的内部结构
-from chapter04.class_method import Date
+from chapter04.class_method_4_6 import Date
 class Person:
     """
     人
