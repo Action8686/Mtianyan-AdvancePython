@@ -1,16 +1,23 @@
-#1.python中函数的工作原理
+# 1.python中函数的工作原理
+from collections import UserList
+import dis
 """
 
 """
 import inspect
 frame = None
+
+
 def foo():
     bar()
+
+
 def bar():
     global frame
     frame = inspect.currentframe()
 
-#python.exe会用一个叫做 PyEval_EvalFramEx(c函数)去执行foo函数， 首先会创建一个栈帧(stack frame)
+
+# python.exe会用一个叫做 PyEval_EvalFramEx(c函数)去执行foo函数， 首先会创建一个栈帧(stack frame)
 """
 python一切皆对象，栈帧对象， 字节码对象
 当foo调用子函数 bar， 又会创建一个栈帧
@@ -32,9 +39,9 @@ def gen_func():
     age = 30
     return "imooc"
 
-import dis
+
 gen = gen_func()
-print (dis.dis(gen))
+print(dis.dis(gen))
 
 print(gen.gi_frame.f_lasti)
 print(gen.gi_frame.f_locals)
@@ -44,9 +51,8 @@ print(gen.gi_frame.f_locals)
 next(gen)
 print(gen.gi_frame.f_lasti)
 print(gen.gi_frame.f_locals)
+
 
 class company:
     def __getitem__(self, item):
         pass
-
-from collections import UserList

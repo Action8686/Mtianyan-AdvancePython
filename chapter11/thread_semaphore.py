@@ -1,9 +1,10 @@
-#Semaphore 是用于控制进入数量的锁
-#文件， 读、写， 写一般只是用于一个线程写，读可以允许有多个
+# Semaphore 是用于控制进入数量的锁
+# 文件， 读、写， 写一般只是用于一个线程写，读可以允许有多个
 
-#做爬虫
+# 做爬虫
 import threading
 import time
+
 
 class HtmlSpider(threading.Thread):
     def __init__(self, url, sem):
@@ -16,6 +17,7 @@ class HtmlSpider(threading.Thread):
         print("got html text success")
         self.sem.release()
 
+
 class UrlProducer(threading.Thread):
     def __init__(self, sem):
         super().__init__()
@@ -26,6 +28,7 @@ class UrlProducer(threading.Thread):
             self.sem.acquire()
             html_thread = HtmlSpider("https://baidu.com/{}".format(i), self.sem)
             html_thread.start()
+
 
 if __name__ == "__main__":
     sem = threading.Semaphore(3)

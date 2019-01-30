@@ -1,4 +1,4 @@
-#线程间通信
+# 线程间通信
 
 import time
 import threading
@@ -6,11 +6,12 @@ from chapter11 import variables
 
 from threading import Condition
 
-#1. 生产者当生产10个url以后就就等待，保证detail_url_list中最多只有十个url
-#2. 当url_list为空的时候，消费者就暂停
+# 1. 生产者当生产10个url以后就就等待，保证detail_url_list中最多只有十个url
+# 2. 当url_list为空的时候，消费者就暂停
+
 
 def get_detail_html(lock):
-    #爬取文章详情页
+    # 爬取文章详情页
     detail_url_list = variables.detail_url_list
     while True:
 
@@ -45,10 +46,10 @@ def get_detail_url(lock):
         print("get detail url end")
 
 
-#1. 线程通信方式- 共享变量
+# 1. 线程通信方式- 共享变量
 
-if  __name__ == "__main__":
-    lock = RLock()
+if __name__ == "__main__":
+    lock = threading.RLock()
     thread_detail_url = threading.Thread(target=get_detail_url, args=(lock,))
     for i in range(10):
         html_thread = threading.Thread(target=get_detail_html, args=(lock,))
@@ -61,5 +62,5 @@ if  __name__ == "__main__":
     # thread1.join()
     # thread2.join()
 
-    #当主线程退出的时候， 子线程kill掉
-    print ("last time: {}".format(time.time()-start_time))
+    # 当主线程退出的时候， 子线程kill掉
+    print("last time: {}".format(time.time() - start_time))

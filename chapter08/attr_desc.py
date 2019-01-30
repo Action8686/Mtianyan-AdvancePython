@@ -1,28 +1,33 @@
 from datetime import date, datetime
 import numbers
 
+
 class IntField:
-    #数据描述符
+    # 数据描述符
     def __get__(self, instance, owner):
         return self.value
+
     def __set__(self, instance, value):
         if not isinstance(value, numbers.Integral):
             raise ValueError("int value need")
         if value < 0:
             raise ValueError("positive value need")
         self.value = value
+
     def __delete__(self, instance):
         pass
 
 
 class NonDataIntField:
-    #非数据属性描述符
+    # 非数据属性描述符
     def __get__(self, instance, owner):
         return self.value
+
 
 class User:
     age = IntField()
     # age = NonDataIntField()
+
 
 '''
 如果user是某个类的实例，那么user.age（以及等价的getattr(user,’age’)）
@@ -70,11 +75,10 @@ user = User(), 那么user.age 顺序如下：
 if __name__ == "__main__":
     user = User()
     user.__dict__["age"] = "abc"
-    print (user.__dict__)
-    print (user.age)
+    print(user.__dict__)
+    print(user.age)
     # print (getattr(user, 'age'))
     # user = User("bobby", date(year=1987, month=1, day=1))
     # user.age = 30
     # print (user._age)
     # print(user.age)
-

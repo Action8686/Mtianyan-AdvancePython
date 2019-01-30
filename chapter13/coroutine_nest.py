@@ -1,11 +1,11 @@
-#1. run_until_complete
+# 1. run_until_complete
 # import asyncio
 # loop = asyncio.get_event_loop()
 # loop.run_forever()
 # loop.run_until_complete()
 
-#1. loop会被放到future中
-#2. 取消future(task)
+# 1. loop会被放到future中
+# 2. 取消future(task)
 
 # import asyncio
 # import time
@@ -37,6 +37,6 @@
 #     finally:
 #         loop.close()
 
-#注册协程到loop中有两种方法
-#1. 通过ensure_future/create_task
-#2. await
+# 注册协程到loop中有两种方法
+# 1. 通过ensure_future/create_task
+# 2. await

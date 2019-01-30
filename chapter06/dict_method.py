@@ -1,7 +1,7 @@
-a = {"bobby1":{"company":"imooc"},
+a = {"bobby1": {"company": "imooc"},
      "bobby2": {"company": "imooc2"}
      }
-#clear
+# clear
 # a.clear()
 # pass
 
@@ -9,10 +9,9 @@ a = {"bobby1":{"company":"imooc"},
 new_dict = a.copy()
 new_dict["bobby1"]["company"] = "imooc3"
 
-#formkeys
+# formkeys
 new_list = ["bobby1", "bobby2"]
 
-new_dict = dict.fromkeys(new_list, {"company":"imooc"})
+new_dict = dict.fromkeys(new_list, {"company": "imooc"})
 
-new_dict.update((("bobby","imooc"),))
-
+new_dict.update((("bobby", "imooc"),))

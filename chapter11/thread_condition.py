@@ -1,6 +1,6 @@
 import threading
 
-#条件变量， 用于复杂的线程间同步
+# 条件变量， 用于复杂的线程间同步
 # class XiaoAi(threading.Thread):
 #     def __init__(self, lock):
 #         super().__init__(name="小爱")
@@ -30,7 +30,8 @@ import threading
 #         print("{} : 我们来对古诗吧 ".format(self.name))
 #         self.lock.release()
 
-#通过condition完成协同读诗
+# 通过condition完成协同读诗
+
 
 class XiaoAi(threading.Thread):
     def __init__(self, cond):
@@ -62,6 +63,7 @@ class XiaoAi(threading.Thread):
             self.cond.wait()
             print("{} : 定不负相思意 ".format(self.name))
             self.cond.notify()
+
 
 class TianMao(threading.Thread):
     def __init__(self, cond):
@@ -95,15 +97,14 @@ class TianMao(threading.Thread):
             self.cond.wait()
 
 
-
 if __name__ == "__main__":
     from concurrent import futures
     cond = threading.Condition()
     xiaoai = XiaoAi(cond)
     tianmao = TianMao(cond)
 
-    #启动顺序很重要
-    #在调用with cond之后才能调用wait或者notify方法
-    #condition有两层锁， 一把底层锁会在线程调用了wait方法的时候释放， 上面的锁会在每次调用wait的时候分配一把并放入到cond的等待队列中，等到notify方法的唤醒
+    # 启动顺序很重要
+    # 在调用with cond之后才能调用wait或者notify方法
+    # condition有两层锁， 一把底层锁会在线程调用了wait方法的时候释放， 上面的锁会在每次调用wait的时候分配一把并放入到cond的等待队列中，等到notify方法的唤醒
     xiaoai.start()
     tianmao.start()

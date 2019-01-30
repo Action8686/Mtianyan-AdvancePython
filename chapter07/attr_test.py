@@ -44,14 +44,14 @@ class Derive(Base):
 def main():
     b = Base()
     d = Derive()
-    print ('Derive object dict', d.__dict__)
+    print('Derive object dict', d.__dict__)
     assert d.dd_base == "DataDescriptor __get__"
     assert d.ndd_derive == 'NonDataDescriptor __get__'
     assert d.not_des_attr == 'I am not descriptor attr'
     assert d.no_exists_key == '__getattr__ with key no_exists_key'
     assert d.same_name_attr == 'attr in object'
     d.change_attr()
-    print  ('Derive object dict', d.__dict__)
+    print('Derive object dict', d.__dict__)
     assert d.dd_base != 'dd_base now in object dict '
     assert d.ndd_derive == 'ndd_derive now in object dict '
 

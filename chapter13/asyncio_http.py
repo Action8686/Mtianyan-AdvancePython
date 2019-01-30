@@ -1,19 +1,19 @@
-#asyncio 没有提供http协议的接口 aiohttp
+# asyncio 没有提供http协议的接口 aiohttp
 import asyncio
 import socket
 from urllib.parse import urlparse
 
 
 async def get_url(url):
-    #通过socket请求html
+    # 通过socket请求html
     url = urlparse(url)
     host = url.netloc
     path = url.path
     if path == "":
         path = "/"
 
-    #建立socket连接
-    reader, writer = await asyncio.open_connection(host,80)
+    # 建立socket连接
+    reader, writer = await asyncio.open_connection(host, 80)
     writer.write("GET {} HTTP/1.1\r\nHost:{}\r\nConnection:close\r\n\r\n".format(path, host).encode("utf8"))
     all_lines = []
     async for raw_line in reader:
@@ -21,6 +21,7 @@ async def get_url(url):
         all_lines.append(data)
     html = "\n".join(all_lines)
     return html
+
 
 async def main():
     tasks = []
@@ -36,7 +37,4 @@ if __name__ == "__main__":
     start_time = time.time()
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
-    print('last time:{}'.format(time.time()-start_time))
-
-
-
+    print('last time:{}'.format(time.time() - start_time))

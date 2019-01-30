@@ -1,4 +1,4 @@
-#通过queue的方式进行线程间同步
+# 通过queue的方式进行线程间同步
 from queue import Queue
 
 
@@ -7,7 +7,7 @@ import threading
 
 
 def get_detail_html(queue):
-    #爬取文章详情页
+    # 爬取文章详情页
     while True:
         url = queue.get()
         # for url in detail_url_list:
@@ -26,11 +26,10 @@ def get_detail_url(queue):
         print("get detail url end")
 
 
-#1. 线程通信方式- 共享变量
+# 1. 线程通信方式- 共享变量
 
-if  __name__ == "__main__":
+if __name__ == "__main__":
     detail_url_queue = Queue(maxsize=1000)
-
 
     thread_detail_url = threading.Thread(target=get_detail_url, args=(detail_url_queue,))
     for i in range(10):
@@ -46,5 +45,5 @@ if  __name__ == "__main__":
     detail_url_queue.task_done()
     detail_url_queue.join()
 
-    #当主线程退出的时候， 子线程kill掉
-    print ("last time: {}".format(time.time()-start_time))
+    # 当主线程退出的时候， 子线程kill掉
+    print("last time: {}".format(time.time() - start_time))

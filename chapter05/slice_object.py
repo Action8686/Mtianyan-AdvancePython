@@ -1,6 +1,8 @@
 import numbers
+
+
 class Group:
-    #支持切片操作
+    # 支持切片操作
     def __init__(self, group_name, company_name, staffs):
         self.group_name = group_name
         self.company_name = company_name
@@ -27,6 +29,7 @@ class Group:
             return True
         else:
             return False
+
 
 staffs = ["bobby1", "imooc", "bobby2", "bobby3"]
 group = Group(company_name="imooc", group_name="user", staffs=staffs)
