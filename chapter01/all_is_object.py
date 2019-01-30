@@ -2,32 +2,8 @@
 # -*- coding: utf-8 -*-
 __author__ = 'mtianyan'
 __date__ = '2018/11/6 18:18'
-"""
-            　┏┓　　　┏┓+ +
-  　　　　　　　┏┛┻━━━┛┻┓ + +
-  　　　　　　　┃　　　　　　　┃ 　
-  　　　　　　　┃　　　━　　　┃ ++ + + +
-  　　　　　　 ████━████ ┃+
-  　　　　　　　┃　　　　　　　┃ +
-  　　　　　　　┃　　　┻　　　┃
-  　　　　　　　┃　　　　　　　┃ + +
-  　　　　　　　┗━┓　　　┏━┛
-  　　　　　　　　　┃　　　┃　　　　　　　　　　　
-  　　　　　　　　　┃　　　┃ + + + +
-  　　　　　　　　　┃　　　┃　　　　Code is far away from bug with the animal protecting　　　　　　　
-  　　　　　　　　　┃　　　┃ + 　　　　神兽保佑,代码无bug　　
-  　　　　　　　　　┃　　　┃
-  　　　　　　　　　┃　　　┃　　+　　　　　　　　　
-  　　　　　　　　　┃　 　　┗━━━┓ + +
-  　　　　　　　　　┃ 　　　　　　　┣┓
-  　　　　　　　　　┃ 　　　　　　　┏┛
-  　　　　　　　　　┗┓┓┏━┳┓┏┛ + + + +
-  　　　　　　　　　　┃┫┫　┃┫┫
-  　　　　　　　　　　┗┻┛　┗┻┛+ + + +
-"""
-
-
 # 1. 可以被赋值给变量
+
 
 def ask(name='mtianyan'):
     print(name)
